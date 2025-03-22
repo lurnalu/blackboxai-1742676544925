@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productListFragment">
+
+    <!-- Product List Fragment -->
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.orthopaedics.productmanagement.ui.products.ProductListFragment"
+        android:label="@string/nav_products"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_productList_to_productDetail"
+            app:destination="@id/productDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <!-- Product Detail Fragment -->
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.orthopaedics.productmanagement.ui.products.ProductDetailFragment"
+        android:label="@string/add_product"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="productId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+    </fragment>
+
+    <!-- Customer List Fragment -->
+    <fragment
+        android:id="@+id/customerListFragment"
+        android:name="com.orthopaedics.productmanagement.ui.customers.CustomerListFragment"
+        android:label="@string/nav_customers"
+        tools:layout="@layout/fragment_customer_list">
+        <action
+            android:id="@+id/action_customerList_to_customerDetail"
+            app:destination="@id/customerDetailFragment" />
+    </fragment>
+
+    <!-- Customer Detail Fragment -->
+    <fragment
+        android:id="@+id/customerDetailFragment"
+        android:name="com.orthopaedics.productmanagement.ui.customers.CustomerDetailFragment"
+        tools:layout="@layout/fragment_customer_detail">
+        <argument
+            android:name="customerId"
+            android:defaultValue="-1L"
+            app:argType="long" />
+    </fragment>
+
+    <!-- Scanner Fragment -->
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.orthopaedics.productmanagement.ui.scanner.ScannerFragment"
+        android:label="@string/nav_scanner"
+        tools:layout="@layout/fragment_scanner">
+        <action
+            android:id="@+id/action_scanner_to_productDetail"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+
+    <!-- Reports Fragment -->
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.orthopaedics.productmanagement.ui.reports.ReportsFragment"
+        android:label="@string/nav_reports"
+        tools:layout="@layout/fragment_reports">
+        <action
+            android:id="@+id/action_reports_to_salesReport"
+            app:destination="@id/salesReportFragment" />
+        <action
+            android:id="@+id/action_reports_to_inventoryReport"
+            app:destination="@id/inventoryReportFragment" />
+    </fragment>
+
+    <!-- Sales Report Fragment -->
+    <fragment
+        android:id="@+id/salesReportFragment"
+        android:name="com.orthopaedics.productmanagement.ui.reports.SalesReportFragment"
+        android:label="@string/sales_report"
+        tools:layout="@layout/fragment_sales_report" />
+
+    <!-- Inventory Report Fragment -->
+    <fragment
+        android:id="@+id/inventoryReportFragment"
+        android:name="com.orthopaedics.productmanagement.ui.reports.InventoryReportFragment"
+        android:label="@string/inventory_report"
+        tools:layout="@layout/fragment_inventory_report" />
+
+</navigation>
